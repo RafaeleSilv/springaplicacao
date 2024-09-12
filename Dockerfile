@@ -6,7 +6,7 @@ COPY src ./src
 RUN mvn clean install
 
 # Etapa 2: Executar o aplicativo usando uma imagem JDK mais leve
-FROM openjdk:17-jdk-slim
+FROM openjdk:21-jdk-slim
 WORKDIR /app
 COPY --from=build /app/target/conversor-temperatura-0.0.1-SNAPSHOT.jar /app/conversor-temperatura.jar
 ENTRYPOINT ["java", "-jar", "/app/conversor-temperatura.jar"]
